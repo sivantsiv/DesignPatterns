@@ -3,7 +3,7 @@
 
 # include Boost
 #===========================================================================
-set(Boost_INCLUDE_DIR "C:/myprojects/boost_1_81_0")
+set(Boost_INCLUDE_DIR "../../../boost")
 include_directories(${Boost_INCLUDE_DIR})
 
 # Add source to this project's executable.

@@ -5,7 +5,7 @@ cmake_minimum_required (VERSION 3.8)
 
 # include Boost
 #===========================================================================
-set(Boost_INCLUDE_DIR "C:/myprojects/boost_1_81_0")
+set(Boost_INCLUDE_DIR "../../boost")
 include_directories(${Boost_INCLUDE_DIR})
 
 # Enable Hot Reload for MSVC compilers if supported.
