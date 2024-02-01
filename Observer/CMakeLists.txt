@@ -1,0 +1,27 @@
+﻿# CMakeList.txt : CMake project for Observer, include source and define
+# project specific logic here.
+#
+cmake_minimum_required (VERSION 3.8)
+
+# include Boost
+#===========================================================================
+set(Boost_INCLUDE_DIR "../../boost")
+include_directories(${Boost_INCLUDE_DIR})
+
+# Enable Hot Reload for MSVC compilers if supported.
+if (POLICY CMP0141)
+  cmake_policy(SET CMP0141 NEW)
+  set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
+endif()
+
+project ("Observer")
+
+# Add source to this project's executable.
+set(SOURCE_FILES main.cpp headers.hpp Observer.cpp Observer.hpp Observable.cpp Observable.hpp SaferObservable.cpp SaferObservable.hpp)
+add_executable(Observer ${SOURCE_FILES})
+
+if (CMAKE_VERSION VERSION_GREATER 3.12)
+  set_property(TARGET Observer PROPERTY CXX_STANDARD 20)
+endif()
+
+# TODO: Add tests and install targets if needed.
